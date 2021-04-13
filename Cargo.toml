@@ -17,6 +17,7 @@ rand = "0.8"
 rayon = "^1.5"
 
 [dependencies.getrandom]
+version = "0.2.2"
 features = ["js"]
 
 [dev-dependencies]
