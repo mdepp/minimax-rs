@@ -3,6 +3,7 @@ use super::super::interface::*;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
 use std::thread::{sleep, spawn};
+use gloo_timers::callback::Timeout;
 use instant::Duration;
 
 // For values near winning and losing values, push them slightly closer to zero.
@@ -29,6 +30,17 @@ pub(super) fn unclamp_value(value: Evaluation) -> Evaluation {
     }
 }
 
+#[cfg(feature = "wasm-bindgen")]
+pub(super) fn timeout_signal(dur: Duration) -> Arc<AtomicBool> {
+    let signal = Arc::new(AtomicBool::new(false));
+    let signal2 = signal.clone();
+    Timeout::new(dur.as_millis() as u32, move || {
+        signal2.store(true, Ordering::Relaxed)
+    }).forget();
+    signal
+}
+
+#[cfg(not(feature = "wasm-bindgen"))]
 pub(super) fn timeout_signal(dur: Duration) -> Arc<AtomicBool> {
     // Theoretically we could include an async runtime to do this and use
     // fewer threads, but the stdlib implementation is only a few lines...

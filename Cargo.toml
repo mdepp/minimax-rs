@@ -17,6 +17,7 @@ rand = "0.8"
 rayon = "^1.5"
 instant = "0.1.9"
 getrandom = "*"  # total hack
+gloo-timers = "^0.2"
 
 [dev-dependencies]
 bencher = "0.1.5"
