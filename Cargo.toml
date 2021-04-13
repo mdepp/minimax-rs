@@ -15,10 +15,8 @@ num_cpus = "1.0"
 parking_lot = "^0.11"
 rand = "0.8"
 rayon = "^1.5"
-
-[dependencies.getrandom]
-version = "0.2.2"
-features = ["js"]
+instant = "0.1.9"
+getrandom = "*"  # total hack
 
 [dev-dependencies]
 bencher = "0.1.5"
@@ -29,3 +27,6 @@ harness = false
 
 [profile.test]
 opt-level = 3
+
+[features]
+wasm-bindgen = ["instant/wasm-bindgen", "getrandom/js"]

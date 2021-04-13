@@ -15,7 +15,7 @@ use rayon::prelude::*;
 use std::cmp::max;
 use std::sync::atomic::{AtomicBool, AtomicI32, Ordering};
 use std::sync::{Arc, Mutex};
-use std::time::{Duration, Instant};
+use instant::{Duration, Instant};
 
 /// Options to use for the parallel search engine.
 #[derive(Clone, Copy)]

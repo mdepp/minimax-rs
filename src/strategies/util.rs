@@ -3,7 +3,7 @@ use super::super::interface::*;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
 use std::thread::{sleep, spawn};
-use std::time::Duration;
+use instant::Duration;
 
 // For values near winning and losing values, push them slightly closer to zero.
 // A win in 3 moves (BEST-3) will be chosen over a win in 5 moves (BEST-5).

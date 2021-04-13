@@ -18,7 +18,7 @@ use std::cmp::max;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Condvar, Mutex};
 use std::thread::spawn;
-use std::time::{Duration, Instant};
+use instant::{Duration, Instant};
 
 /// Options to use for the iterative search engine.
 #[derive(Clone, Copy)]

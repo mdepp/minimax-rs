@@ -3,7 +3,7 @@
 use super::interface;
 use super::interface::{Game, Move};
 use std::default::Default;
-use std::time::Instant;
+use instant::Instant;
 
 /// Play a complete, new game with players using the two provided strategies.
 ///

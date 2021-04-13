@@ -12,7 +12,7 @@ use super::util::*;
 use std::cmp::max;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
-use std::time::{Duration, Instant};
+use instant::{Duration, Instant};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
 /// Strategies for when to overwrite entries in the transition table.
